@@ -1,0 +1,1 @@
+kubectl apply -f ./blog-service.deployment.yml -f ./user-service.deployment.yml -f ./ingress.dev.yml

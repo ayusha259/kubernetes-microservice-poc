@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "microservices-ingress"
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "global-ip-2"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /blogs
+        pathType: Prefix
+        backend:
+          service:
+            name: blog-service-svc
+            port:
+              number: 80
+      - path: /users
+        pathType: Prefix
+        backend:
+          service:
+            name: user-service-svc
+            port:
+              number: 80
